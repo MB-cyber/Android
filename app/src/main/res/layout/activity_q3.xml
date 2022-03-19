@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Q3"
+    android:orientation="vertical"
+    android:background="@drawable/sand"
+    >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        android:background="@drawable/gardian"
+        android:src="@drawable/logo"
+        android:contentDescription="Logo"
+        />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:orientation="vertical"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/imgQuestion"
+            style="@style/CardView.Light"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:adjustViewBounds="true"
+
+            android:src="@drawable/score" />
+        <TextView
+            android:id="@+id/TVQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textSize="20sp"
+            android:autoSizeMaxTextSize="40dp"
+            android:text="Q1"
+            android:textColor="@color/white"
+            android:background="@drawable/roundedcornners"
+            android:gravity="center"
+
+            />
+
+    </LinearLayout>
+
+
+    <RadioGroup
+        android:id="@+id/RG"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+
+
+
+        >
+
+        <RadioButton
+            android:id="@+id/RB1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="q2A1" />
+        <RadioButton
+            android:id="@+id/RB2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="q2A2" />
+        <RadioButton
+            android:id="@+id/RB3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="q2A30" />
+        <RadioButton
+            android:id="@+id/RB4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="q2A30" />
+
+
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/Bnext"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="next"
+        app:cornerRadius="10dp"
+        android:drawableEnd="@drawable/ic_baseline_navigate_next_24">
+
+
+    </Button>
+
+
+</LinearLayout>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Register"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/login2"
+    >
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="300dp"
+        android:src="@drawable/register"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="20dp"
+        android:background="#36FFFFFF"
+       >
+
+        <EditText
+            android:id="@+id/edMail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:drawableLeft="@drawable/ic_baseline_mail_24"
+            android:hint="Mail@exemple.exemple"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
+            android:textColorHint="@color/white" />
+
+        <EditText
+            android:id="@+id/edPassword1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:drawableLeft="@drawable/ic_baseline_lock_24"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:textColorHint="@color/white"
+            />
+        <EditText
+            android:id="@+id/edPasswordConfirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:drawableLeft="@drawable/ic_baseline_lock_24"
+            android:hint="Password Confirme"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:textColorHint="@color/white"
+
+            />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/bsignin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="SIGN IN"
+
+        app:cornerRadius="10dp" />
+
+    <TextView
+        android:id="@+id/tvLOGIN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="To LOG IN Click here!"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:clickable="true"/>
+
+
+
+</LinearLayout>

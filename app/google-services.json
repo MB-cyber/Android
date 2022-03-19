@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "911504428889",
+    "project_id": "boba-fett-book",
+    "storage_bucket": "boba-fett-book.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:911504428889:android:725d64a8583467cf9f4648",
+        "android_client_info": {
+          "package_name": "com.example.bobafettbook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "911504428889-ji31eib7fffl1snek50b1f3n62jnn0gt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlgV-HSQtTcgx8CMwpynbeTcEwoskh_EI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "911504428889-ji31eib7fffl1snek50b1f3n62jnn0gt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

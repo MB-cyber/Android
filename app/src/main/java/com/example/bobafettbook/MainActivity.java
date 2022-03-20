@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     EditText edlogin,edPassword;
     Button blogin;
     TextView tvregister;
+    ////data
+    Button bDatas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +35,20 @@ public class MainActivity extends AppCompatActivity {
         edPassword=(EditText) findViewById(R.id.edPassword);
         blogin=(Button) findViewById(R.id.bLogin);
         tvregister=(TextView) findViewById(R.id.tvRegister);
+        //
+        bDatas= findViewById(R.id.bdatas);
+        //
 
+        bDatas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(MainActivity.this,ADDDATA.class);
+                startActivity(intent);
+            }
+        });
+
+
+        //
         blogin.setOnClickListener(new View.OnClickListener() {
 
             @Override

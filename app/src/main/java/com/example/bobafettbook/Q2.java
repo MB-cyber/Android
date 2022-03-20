@@ -50,7 +50,7 @@ public class Q2 extends AppCompatActivity  {
 
         question = Questions.get(position - 1);
         question_id = question.id;
-        TVQuestion.setText(question.question);
+        TVQuestion.setText(question.quest);
         RB1.setText(question.A1);
         RB2.setText(question.A2);
         RB3.setText(question.A3);

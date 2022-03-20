@@ -13,6 +13,7 @@ import java.util.List;
 public class Q1 extends AppCompatActivity {
 int Scores=0;
 int position=1;
+    List<Question> Questions = Question.getQuestion();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +29,7 @@ int position=1;
 
 //get data
 
-        List<Question> Questions = Question.getQuestion();
+
         //   Log.i("Questions are ",Questions.toString());
 
 
@@ -37,7 +38,7 @@ int position=1;
 
         question = Questions.get(position-1);
         question_id=question.id;
-        TVQuestion.setText(question.question);
+        TVQuestion.setText(question.quest);
         RB1.setText(question.A1);
         RB2.setText(question.A2);
         RB3.setText(question.A3);

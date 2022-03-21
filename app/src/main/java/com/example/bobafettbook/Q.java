@@ -49,7 +49,7 @@ public class Q extends AppCompatActivity {
 
 
         Question question;
-        question = Questions.get(position);
+        question = Questions.get(0);
 
         TVQuestion.setText(question.quest);
         RB1.setText(question.A1);
@@ -68,14 +68,36 @@ public class Q extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     RadioButton Rb = (RadioButton) findViewById(R_btn.getCheckedRadioButtonId());
+                    Log.i("position ", String.valueOf(position));
+
+                        if (Rb.getText().equals(question.TrueAnswer)) {
+
+                            Scores+=1; ;
+
+                        }
+                        position+=1;
+                    Log.i("C1position ", String.valueOf(position));
+                    if(position<Questions.size()){
+                        Log.i("position ", String.valueOf(position));
+                        Question question;
+
+                        question = Questions.get(position);
+
+                        TVQuestion.setText(question.quest);
+
+                        RB1.setText(question.A1);
+                        RB1.setChecked(false);
+                        RB2.setText(question.A2);
+                        RB2.setChecked(false);
+                        RB3.setText(question.A3);
+                        RB3.setChecked(false);
+                        RB4.setText(question.A4);
+                        RB4.setChecked(false);
+                        Log.i("position ", String.valueOf(position));
+                    }else
+                        OpenScores();
 
 
-                    if (Rb.getText().equals(question.TrueAnswer)) {
-
-                       setScores(Scores ++); ;
-
-                    }
-                    setPosition(position++);
 
 
 
@@ -94,12 +116,11 @@ public class Q extends AppCompatActivity {
     }
 
 
-    private void OpenScores(){
+    private void OpenScores() {
 
-        Intent intent =new Intent(this,Score.class);
+        Intent intent = new Intent(this, Score.class);
         intent.putExtra("Scores",Scores);
-        intent.putExtra("position", position+1);
-
+        intent.putExtra("position",position+1);
         startActivity(intent);
     }
 }

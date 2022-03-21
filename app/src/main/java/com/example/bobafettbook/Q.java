@@ -70,29 +70,29 @@ public class Q extends AppCompatActivity {
                     RadioButton Rb = (RadioButton) findViewById(R_btn.getCheckedRadioButtonId());
                     Log.i("position ", String.valueOf(position));
 
-                        if (Rb.getText().equals(question.TrueAnswer)) {
+                        if (Rb.getText().equals(Questions.get(position).TrueAnswer)) {
 
                             Scores+=1; ;
 
                         }
                         position+=1;
-                    Log.i("C1position ", String.valueOf(position));
+                    Log.i("Scores123 ", String.valueOf(Scores));
                     if(position<Questions.size()){
-                        Log.i("position ", String.valueOf(position));
+                        Log.i("Scores ", String.valueOf(Scores));
                         Question question;
 
                         question = Questions.get(position);
 
                         TVQuestion.setText(question.quest);
-
+                        R_btn.clearCheck();
                         RB1.setText(question.A1);
-                        RB1.setChecked(false);
+
                         RB2.setText(question.A2);
-                        RB2.setChecked(false);
+
                         RB3.setText(question.A3);
-                        RB3.setChecked(false);
+
                         RB4.setText(question.A4);
-                        RB4.setChecked(false);
+
                         Log.i("position ", String.valueOf(position));
                     }else
                         OpenScores();

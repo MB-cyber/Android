@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -15,13 +16,14 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ADDDATA extends AppCompatActivity {
     Button bData,getbData;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-    List<Question> quest;
+    List<Question> quest=new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,9 +80,16 @@ public class ADDDATA extends AppCompatActivity {
                 Question.setQuestion(new DAO() {
                     @Override
                     public void onCallback(List<Question> QuestionList) {
+
+                        quest=QuestionList;
+                        OpenScores(quest);
                         Log.d("TAG5555", ""+QuestionList);
                     }
                 });
+
+
+
+
 
 
             }
@@ -88,10 +97,11 @@ public class ADDDATA extends AppCompatActivity {
 
     }
 
-    private void OpenScores() {
+    private void OpenScores(List<Question> quest) {
 
-        Intent intent = new Intent(this, Q3.class);
-        intent.putExtra("Scores", 12);
+        Intent intent = new Intent(this, Q.class);
+        Log.d("openscore", ""+quest);
+        intent.putExtra("quest", (Serializable) quest);
 
 
         startActivity(intent);

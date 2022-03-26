@@ -9,26 +9,29 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Q extends AppCompatActivity {
-    FirebaseStorage storage ;
-
-
-    StorageReference storageRef ;
+    FirebaseStorage storage = FirebaseStorage.getInstance();
+    StorageReference storageRef = storage.getReference();
     String Q="q1";
     StorageReference pathReference;
-
+    ImageView Images;
 
     Bundle bundle ;
     int Scores=0;
@@ -45,6 +48,7 @@ public class Q extends AppCompatActivity {
         RadioButton RB2 = (RadioButton) findViewById(R.id.RB2);
         RadioButton RB3 = (RadioButton) findViewById(R.id.RB3);
         RadioButton RB4 = (RadioButton) findViewById(R.id.RB4);
+        Images= findViewById(R.id.imgQuestion);
 
         bundle = getIntent().getExtras();
 //get data
@@ -63,6 +67,7 @@ public class Q extends AppCompatActivity {
         RB2.setText(question.A2);
         RB3.setText(question.A3);
         RB4.setText(question.A4);
+        setImages(question.id,Images);
 
 
 
@@ -83,6 +88,7 @@ public class Q extends AppCompatActivity {
 
                         }
                         position+=1;
+
                     Log.i("Scores123 ", String.valueOf(Scores));
                     if(position<Questions.size()){
                         Log.i("Scores ", String.valueOf(Scores));
@@ -99,9 +105,11 @@ public class Q extends AppCompatActivity {
                         RB3.setText(question.A3);
 
                         RB4.setText(question.A4);
+                        setImages(question.id,Images);
 
                         Log.i("position ", String.valueOf(position));
                     }else
+
                         OpenScores();
 
 
@@ -117,7 +125,7 @@ public class Q extends AppCompatActivity {
 
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent =new Intent(this,ADDDATA.class);
+        Intent intent =new Intent(this,MainActivity.class);
         startActivity(intent);
 
     }
@@ -131,10 +139,31 @@ public class Q extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void GetImages(){
-  storage = FirebaseStorage.getInstance();
-  storageRef= storage.getReference() ;String Q="q1";
-  pathReference = storageRef.child("Questions/QSM1/"+Q+".jpg");
+
+    public void setImages(int id, ImageView imgview){
+        File localFile;
+        try {
+            pathReference = storageRef.child("/Questions/QSM1/q"+id+".jpg");
+            localFile = File.createTempFile("imgsq1","jpg");
+
+            pathReference.getFile(localFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                    // Local temp file has been created
+                    Picasso.get().load(localFile).into(imgview);
+                    Log.i("imageerrr ", "well done");
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception exception) {
+                    Log.i("imageeee ", "well bad");                }
+            });
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
 
     }

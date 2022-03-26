@@ -97,9 +97,11 @@ public class ADDDATA extends AppCompatActivity {
 
     }
 
-    private void OpenScores(List<Question> quest) {
 
+
+    private void OpenScores(List<Question> quest) {
         Intent intent = new Intent(this, Q.class);
+//        Intent intent = new Intent(this, Images.class);
         Log.d("openscore", ""+quest);
         intent.putExtra("quest", (Serializable) quest);
 

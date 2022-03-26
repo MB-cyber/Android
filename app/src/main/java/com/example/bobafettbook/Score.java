@@ -46,7 +46,7 @@ public class Score extends AppCompatActivity {
 
 
         super.onBackPressed();
-        Intent intent =new Intent(this,Q1.class);
+        Intent intent =new Intent(this,ADDDATA.class);
         startActivity(intent);
 
     }

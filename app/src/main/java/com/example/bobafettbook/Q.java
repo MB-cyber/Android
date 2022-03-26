@@ -1,8 +1,10 @@
 package com.example.bobafettbook;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,17 +13,22 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Q extends AppCompatActivity {
-    public void setScores(int scores) {
-        Scores = scores;
-    }
+    FirebaseStorage storage ;
 
-    public void setPosition(int position) {
-        this.position = position;
-    }
+
+    StorageReference storageRef ;
+    String Q="q1";
+    StorageReference pathReference;
+
 
     Bundle bundle ;
     int Scores=0;
@@ -122,5 +129,13 @@ public class Q extends AppCompatActivity {
         intent.putExtra("Scores",Scores);
         intent.putExtra("position",position+1);
         startActivity(intent);
+    }
+
+    public void GetImages(){
+  storage = FirebaseStorage.getInstance();
+  storageRef= storage.getReference() ;String Q="q1";
+  pathReference = storageRef.child("Questions/QSM1/"+Q+".jpg");
+
+
     }
 }
